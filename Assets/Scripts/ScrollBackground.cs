@@ -9,18 +9,18 @@ public class ScrollBackground : MonoBehaviour
     private Vector2 offset;
     [SerializeField] private float xSpeed;
 
-    private void Awake() 
+    private void Awake()
     {
         backgroundMaterial = GetComponent<Renderer>().material;
     }
 
     private void Start()
     {
-        offset = new Vector2(xSpeed,0);
+        offset = new Vector2(xSpeed, 0);
     }
 
     private void Update()
     {
-        backgroundMaterial.mainTextureOffset += offset*Time.deltaTime;
+        backgroundMaterial.mainTextureOffset += offset * Time.deltaTime;
     }
 }
