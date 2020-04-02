@@ -7,8 +7,8 @@
 /[Mm]emoryCaptures/
 
 # Ignore DOTween asset
-/Assets/Demigiant/
-/Assets/Resources/
+/Assets/Demigiant*
+/Assets/Resources*
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
