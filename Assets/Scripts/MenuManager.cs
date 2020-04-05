@@ -13,7 +13,6 @@ public class MenuManager : MonoBehaviour
 
     public void CloseMainMenu()
     {
-
         //mainMenu.SetActive(false);
     }
     public void OpenMainMenu()

@@ -23,16 +23,16 @@ public class ButtonTransition : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        buttonIcon.color = new Color32(70, 70, 70, 125);
-        buttonTitle.color = new Color32(70, 70, 70, 125);
+        //buttonIcon.color = new Color32(70, 70, 70, 125);
+        //buttonTitle.color = new Color32(70, 70, 70, 125);
         buttonContent.localPosition = new Vector2(0, initialPosY - 8);
     }
 
     //Return Button Visual to initial state
     public void OnPointerUp(PointerEventData eventData)
     {
-        buttonIcon.color = new Color32(255, 255, 255, 255);
-        buttonTitle.color = new Color32(255, 255, 255, 255);
+        //buttonIcon.color = new Color32(255, 255, 255, 255);
+        //buttonTitle.color = new Color32(255, 255, 255, 255);
         buttonContent.localPosition = initialPosition;
     }
 }
