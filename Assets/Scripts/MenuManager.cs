@@ -23,11 +23,14 @@ public class MenuManager : MonoBehaviour
         btnPanelCvGroup = buttonPanel.GetComponent<CanvasGroup>();
         btnPanelCvGroup.alpha = 0;
 
-        FadeIn(animDuration);
+        StartCoroutine(FadeIn(animDuration));
     }
 
-    public void FadeIn(float time)
+    public IEnumerator FadeIn(float time)
     {
+        yield return new WaitForSeconds(0.1f);
+
+        MenuScreen.SetActive(true);
         titleCvGroup.DOFade(1.0f, time);
         btnPanelCvGroup.DOFade(1.0f, time);
     }
@@ -47,8 +50,7 @@ public class MenuManager : MonoBehaviour
     }
     public void OpenMenu()
     {
-        MenuScreen.SetActive(true);
-        FadeIn(animDuration);
+        StartCoroutine(FadeIn(animDuration));
     }
 
 }

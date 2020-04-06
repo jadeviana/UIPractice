@@ -8,25 +8,25 @@ using TMPro;
 public class ButtonTransition : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] private RectTransform buttonContent = null;
-    private Vector2 initialPosition;
+    private float initialPosX;
     private float initialPosY;
 
 
     private void Start()
     {
-        initialPosition = buttonContent.localPosition;
+        initialPosX = buttonContent.localPosition.x;
         initialPosY = buttonContent.localPosition.y;
     }
 
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        buttonContent.localPosition = new Vector2(0, initialPosY - 8);
+        buttonContent.localPosition = new Vector2(initialPosX, initialPosY - 8);
     }
 
     //Return Button Visual to initial state
     public void OnPointerUp(PointerEventData eventData)
     {
-        buttonContent.localPosition = initialPosition;
+        buttonContent.localPosition = new Vector2(initialPosX, initialPosY);
     }
 }
