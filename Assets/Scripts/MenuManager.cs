@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
@@ -11,25 +10,22 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject ribbonTitle = null;
     [SerializeField] private GameObject buttonPanel = null;
 
-    //Title variables
     private CanvasGroup titleCanvasGroup;
-    private float titlePosY;
-
-    //Panel variables
     private CanvasGroup buttonPanelCanvasGroup;
-    private float buttonPanelPosY;
 
-    //Animation variables
-    private float animDuration = 0.5f;
+    private float titlePosY;
+    private float buttonPanelPosY;
+    private float animDuration = 0.4f;
 
     private void Start()
     {
         titleCanvasGroup = ribbonTitle.GetComponent<CanvasGroup>();
-        titlePosY = ribbonTitle.GetComponent<RectTransform>().localPosition.y;
-        titleCanvasGroup.alpha = 0;
-
         buttonPanelCanvasGroup = buttonPanel.GetComponent<CanvasGroup>();
+
+        titlePosY = ribbonTitle.GetComponent<RectTransform>().localPosition.y;
         buttonPanelPosY = buttonPanel.GetComponent<RectTransform>().localPosition.y;
+
+        titleCanvasGroup.alpha = 0;
         buttonPanelCanvasGroup.alpha = 0;
 
         StartCoroutine(FadeIn(animDuration));
@@ -37,25 +33,25 @@ public class MenuManager : MonoBehaviour
 
     public IEnumerator FadeIn(float time)
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
 
         MenuScreen.SetActive(true);
 
-        ribbonTitle.transform.DOLocalMoveY(titlePosY - 40f, 0.5f, true);
+        ribbonTitle.transform.DOLocalMoveY(titlePosY - 40f, time, true);
         titleCanvasGroup.DOFade(1.0f, time);
 
-        buttonPanel.transform.DOLocalMoveY(buttonPanelPosY + 40f, 0.5f, true);
+        buttonPanel.transform.DOLocalMoveY(buttonPanelPosY + 40f, time, true);
         buttonPanelCanvasGroup.DOFade(1.0f, time);
     }
     public IEnumerator FadeOut(float time)
     {
-        ribbonTitle.transform.DOLocalMoveY(titlePosY + 40f, 0.5f, true);
+        ribbonTitle.transform.DOLocalMoveY(titlePosY + 40f, time, true);
         titleCanvasGroup.DOFade(0f, time);
 
-        buttonPanel.transform.DOLocalMoveY(buttonPanelPosY - 40f, 0.5f, true);
+        buttonPanel.transform.DOLocalMoveY(buttonPanelPosY - 40f, time, true);
         buttonPanelCanvasGroup.DOFade(0f, time);
 
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(time + 0.1f);
 
         MenuScreen.SetActive(false);
     }
@@ -68,5 +64,4 @@ public class MenuManager : MonoBehaviour
     {
         StartCoroutine(FadeIn(animDuration));
     }
-
 }

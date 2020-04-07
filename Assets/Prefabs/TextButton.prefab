@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 3827221883096367571}
   - component: {fileID: 3827221883096367570}
   - component: {fileID: 3827221883096367569}
+  - component: {fileID: 5223340441448945412}
   - component: {fileID: 2210205012526610565}
   m_Layer: 5
   m_Name: TextButton
@@ -290,6 +291,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &5223340441448945412
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3827221883096367583}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &2210205012526610565
 MonoBehaviour:
   m_ObjectHideFlags: 0
